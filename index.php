@@ -1,4 +1,29 @@
-<?php include_once('template/header.php'); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Digital Team HTML5 Layout - Tooplate</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+<!--
+
+Template 2075 Digital Team
+
+http://www.tooplate.com/view/2075-digital-team
+
+-->
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/css/animate.min.css">
+	<link rel="stylesheet" href="assets/css/et-line-font.css">
+	<link rel="stylesheet" href="assets/css/nivo-lightbox.css">
+	<link rel="stylesheet" href="assets/css/nivo_themes/default/default.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
 <!-- preloader section -->
 <div class="preloader">
@@ -52,6 +77,15 @@
 	</div>		
 </section>
 
-<?php include_once('template/footer-js.php'); ?>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/smoothscroll.js"></script>
+<script src="assets/js/isotope.js"></script>
+<script src="assets/js/imagesloaded.min.js"></script>
+<script src="assets/js/nivo-lightbox.min.js"></script>
+<script src="assets/js/jquery.backstretch.min.js"></script>
+<script src="assets/js/wow.min.js"></script>
+<script src="assets/js/custom.js"></script>
 
-<?php include_once('template/footer.php'); ?>
+</body>
+</html>

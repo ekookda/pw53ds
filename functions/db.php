@@ -1,6 +1,6 @@
 <?php
 // Membuat koneksi ke database
-$link = new mysqli('localhost','root','R0ckmyta','pw5ds');
+$link = new mysqli('localhost','root','','pw5ds');
 
 // Cek koneksi
 if(mysqli_connect_errno()):
