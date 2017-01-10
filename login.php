@@ -17,6 +17,8 @@
                                 echo "<div class='alert alert-danger'>Password salah!</div>";
                             elseif ($notif == 'disable'):
                                 echo "<div class='alert alert-danger text-center'>Maaf, status anda di non-aktifkan! Silahkan hubungi administrator</div>";
+                            elseif ($notif == 'notlogin'):
+                                echo "<div class='alert alert-danger text-center'>Maaf, anda harus login dulu.</div>";
                             endif;
 
                         ?>

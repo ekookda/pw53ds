@@ -24,11 +24,11 @@ if (isset($_POST['btn-login'])){
 
                         $level = $row['kode_level'];
                         if ($level == 'mgr') {
-                            header('Location:'.BASE_URL.'manager/');
+                            header('Location:'.BASE_URL.'manager/index.php?page=manager');
                         } elseif ($level == 'spv'){
-                            header('Location:'.BASE_URL.'supervisor/');
+                            header('Location:'.BASE_URL.'supervisor/index.php?page=supervisor');
                         } else {
-                            header('Location:'.BASE_URL.'staff/');
+                            header('Location:'.BASE_URL.'staff/index.php?page=staff');
                         }
                     } else {
                         // status disable(0), direct ke form login

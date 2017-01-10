@@ -1,4 +1,5 @@
 <?php include_once('core/init.php'); ?>
+
 <?php include_once('template/header.php'); ?>
 
 <!-- Form Login -->
@@ -52,9 +53,9 @@
 
 	                            	// menampilkan list level
 	                            	$query = "SELECT * FROM level";
-	                            	$result = $link->query($query);
+	                            	$result = mysqli_query($link, $query);
 
-	                            	if ($result->num_rows > 0) {
+	                            	if (mysqli_num_rows($result) > 0) {
 	                            		foreach ($result as $v) {
 	                            			echo "
 	                            				<option value=\"$v[kode_level]\">".ucfirst($v['nama_level'])."</option>}
@@ -67,7 +68,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
+<!--                        <div class="form-group">
                             <label class="control-label col-sm-3" for="status">Status</label>
                             <div class="col-sm-9">
                                 <select name="status" class="form-control">
@@ -76,7 +77,7 @@
                                 </select>
                             </div>
                         </div>
-
+-->
                         <div class="form-group">
                             <label class="control-label col-sm-3" for=""></label>
                             <div class="col-sm-9">
@@ -92,4 +93,5 @@
 </div>
 
 <?php include_once('template/footer-js.php'); ?>
+
 <?php include_once('template/footer.php'); ?>

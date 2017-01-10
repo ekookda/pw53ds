@@ -5,9 +5,11 @@ if (isset($_POST['btn-daftar'])) {
 	// ambil value dari form registrasi
 	$nama_lengkap = trim(sql_injection($_POST['namalengkap']));
 	$email		  = trim(sql_injection($_POST['emailuser']));
+    $email        = strtolower($email);
 	$password	  = trim(sql_injection($_POST['password']));
 	$level		  = trim(sql_injection($_POST['level']));
-	$status		  = trim(sql_injection($_POST['status']));
+	//$status		  = trim(sql_injection($_POST['status']));
+    $status       = 1;
 
 	if (empty($nama_lengkap) || empty($email) || empty($password)) { // cek jika form belum terisi
 		// direct ke form register
@@ -18,7 +20,7 @@ if (isset($_POST['btn-daftar'])) {
 		";
 	} else { // form sudah terisi semua
 		// cek password. minimum 6 karakter mengandung huruf, angka dan simbol.
-		// pattern
+		// pola pattern
 		$pattern_tolower = "/[a-z]/";
 		$pattern_toupper = "/[A-Z]/";
 		$pattern_digit   = "/[0-9]/";
