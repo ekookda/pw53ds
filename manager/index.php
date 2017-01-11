@@ -10,6 +10,13 @@
 </div>
 
 <div class="data-table">
+	<?php
+		$notif = isset($_GET['act'])?$_GET['act']:false;
+
+		if ($notif == 'del') {
+			echo "<div class='alert alert-danger'>Data sudah terhapus</div>";
+		}
+	?>
 	<h3 class="text-center">Data User</h3>
 	<table class="table table-striped table-hover" border="1">
 		<thead>
@@ -54,8 +61,16 @@
 						<td class="text-center"><?php echo $msg; ?></td>
 						<td class="text-center"><?php echo $k['nama_level']; ?></td>
 						<td class="text-center"><?php echo $k['tgl_input']; ?></td>
-						<td class="text-center"><a href="<?php echo 'edit.php?id='.$k['user_id']; ?>"><i class="glyphicon glyphicon-pencil"></i> Edit</a></td>
-						<td class="text-center"><a href="<?php echo 'hapus.php?id='.$k['user_id']; ?>"><i class="glyphicon glyphicon-trash"></i> Hapus</a></td>
+						<?php
+							$sessid = $_SESSION['user_id'];
+							if ($sessid == $k['user_id']) {
+						?>
+								<td class="text-center"><a href="edit.php?id=<?php echo $k['user_id'];?>"><i class="glyphicon glyphicon-pencil"></i> Edit</a></td>
+								<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash"></i> Hapus</a></td>
+						<?php } else { ?>
+								<td class="text-center"><a href="edit.php?id=<?php echo $k['user_id'];?>"><i class="glyphicon glyphicon-pencil"></i> Edit</a></td>
+								<td class="text-center"><a href="hapus.php?id=<?php echo $k['user_id'];?>" onclick="confirm()"><i class="glyphicon glyphicon-trash"></i> Hapus</a></td>
+						<?php } ?>
 					</tr>
 		<?php
 					$no++;
@@ -67,5 +82,16 @@
 </div>
 
 <?php include_once '../template/footer-js.php'; ?>
+
+<script type="text/javascript">
+function confirm() {
+	var c = window.confirm("Anda yakin ingin menghapus data ini ?");
+	if (c == true) {
+		return true;
+	} else {
+		return false;
+	}
+}
+</script>
 
 <?php include_once '../template/footer.php'; ?>
