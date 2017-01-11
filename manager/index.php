@@ -6,16 +6,18 @@
 
 <!-- kontent staff -->
 <div class="welcome">
-	<h2 class="pesan text-center">Selamat datang <strong><?php echo $_SESSION['user']; ?></strong>, anda login sebagai <?php echo $_SESSION['level']; ?></h2>
+	<h2 class="alert alert-info text-center">Selamat datang <strong><?php echo $_SESSION['user']; ?></strong>, anda login sebagai <?php echo $_SESSION['level']; ?></h2>
 </div>
 
 <div class="data-table">
 	<?php
 		$notif = isset($_GET['act'])?$_GET['act']:false;
 
-		if ($notif == 'del') {
+		if ($notif == 'del'):
 			echo "<div class='alert alert-danger'>Data sudah terhapus</div>";
-		}
+		elseif ($notif == 'success'):
+			echo "<div class='alert alert-success'>Data sudah diubah</div>";
+		endif;
 	?>
 	<h3 class="text-center">Data User</h3>
 	<table class="table table-striped table-hover" border="1">
@@ -59,7 +61,7 @@
 							}
 						?>
 						<td class="text-center"><?php echo $msg; ?></td>
-						<td class="text-center"><?php echo $k['nama_level']; ?></td>
+						<td class="text-center"><?php echo ucfirst($k['nama_level']); ?></td>
 						<td class="text-center"><?php echo $k['tgl_input']; ?></td>
 						<?php
 							$sessid = $_SESSION['user_id'];
@@ -69,7 +71,7 @@
 								<td class="text-center"><a href="#"><i class="glyphicon glyphicon-trash"></i> Hapus</a></td>
 						<?php } else { ?>
 								<td class="text-center"><a href="edit.php?id=<?php echo $k['user_id'];?>"><i class="glyphicon glyphicon-pencil"></i> Edit</a></td>
-								<td class="text-center"><a href="hapus.php?id=<?php echo $k['user_id'];?>" onclick="confirm()"><i class="glyphicon glyphicon-trash"></i> Hapus</a></td>
+								<td class="text-center"><a href="hapus.php?id=<?php echo $k['user_id'];?>" onclick="return confirm('Apakah anda yakin ingin menghapus data ini ?')"><i class="glyphicon glyphicon-trash"></i> Hapus</a></td>
 						<?php } ?>
 					</tr>
 		<?php
@@ -82,16 +84,5 @@
 </div>
 
 <?php include_once '../template/footer-js.php'; ?>
-
-<script type="text/javascript">
-function confirm() {
-	var c = window.confirm("Anda yakin ingin menghapus data ini ?");
-	if (c == true) {
-		return true;
-	} else {
-		return false;
-	}
-}
-</script>
 
 <?php include_once '../template/footer.php'; ?>
